@@ -1,0 +1,105 @@
+<wsdl:definitions
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:sch="http://www.actimizewebservice.com/api/actimize"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://www.actimizewebservice.com/api/actimize"
+	targetNamespace="http://www.actimizewebservice.com/api/actimize">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			elementFormDefault="qualified"
+			targetNamespace="http://www.actimizewebservice.com/api/actimize">
+			<xsd:element name="RealTimeWSProviderRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="returnCode" type="xsd:int" />
+						<xsd:element name="boolHit" type="xsd:boolean" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="RealTimeWSProviderResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="RealTimeWSProviderReturn">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="addtionalData" nillable="true"
+										type="xsd:string" />
+									<xsd:element name="message" type="xsd:string" />
+									<xsd:element name="returnCode" type="xsd:string" />
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="hasHits" nillable="true"
+							type="xsd:boolean" />
+						<xsd:element name="hits">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="hits_InnerSet">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element maxOccurs="unbounded"
+													name="RealTimeWSProvider_Hits_InnerSet_TupleType">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="additionalInfo"
+																type="xsd:string" />
+															<xsd:element name="score" type="xsd:int" />
+														</xsd:sequence>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="alertID" nillable="true"
+							type="xsd:long" />
+						<xsd:element name="searchId" nillable="true"
+							type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="RealTimeWSProviderResponse">
+		<wsdl:part element="tns:RealTimeWSProviderResponse"
+			name="RealTimeWSProviderResponse">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="RealTimeWSProviderRequest">
+		<wsdl:part element="tns:RealTimeWSProviderRequest"
+			name="RealTimeWSProviderRequest">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="RealTimeWSActimizeIndicator">
+		<wsdl:operation name="RealTimeWSProvider">
+			<wsdl:input message="tns:RealTimeWSProviderRequest"
+				name="RealTimeWSProviderRequest">
+			</wsdl:input>
+			<wsdl:output message="tns:RealTimeWSProviderResponse"
+				name="RealTimeWSProviderResponse">
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="RealTimeWSActimizeIndicatorSoap11"
+		type="tns:RealTimeWSActimizeIndicator">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="RealTimeWSProvider">
+			<soap:operation soapAction="" />
+			<wsdl:input name="RealTimeWSProviderRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="RealTimeWSProviderResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="RealTimeWSActimizeIndicatorService">
+		<wsdl:port binding="tns:RealTimeWSActimizeIndicatorSoap11"
+			name="RealTimeWSActimizeIndicatorSoap11">
+			<soap:address location="http://localhost:8080/ws" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

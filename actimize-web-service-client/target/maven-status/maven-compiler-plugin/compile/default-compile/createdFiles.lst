@@ -1,0 +1,9 @@
+com\actimizewebservice\soap\api\actimize\RealTimeWSProviderResponse$Hits$HitsInnerSet.class
+com\actimizewebservice\soap\api\ActimizeWebServiceClientApplication.class
+com\actimizewebservice\soap\api\actimize\package-info.class
+com\actimizewebservice\soap\api\actimize\RealTimeWSProviderRequest.class
+com\actimizewebservice\soap\api\actimize\RealTimeWSProviderResponse$Hits.class
+com\actimizewebservice\soap\api\actimize\RealTimeWSProviderResponse.class
+com\actimizewebservice\soap\api\actimize\ObjectFactory.class
+com\actimizewebservice\soap\api\actimize\RealTimeWSProviderResponse$Hits$HitsInnerSet$RealTimeWSProviderHitsInnerSetTupleType.class
+com\actimizewebservice\soap\api\actimize\RealTimeWSProviderResponse$RealTimeWSProviderReturn.class
