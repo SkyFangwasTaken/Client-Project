@@ -18,7 +18,7 @@ public class SoapClient{
 	
 	public RealTimeWSProviderResponse checkHitOutput (RealTimeWSProviderRequest request) {
 		template = new WebServiceTemplate(marshaller);
-		RealTimeWSProviderResponse rtwspResponse = (RealTimeWSProviderResponse) template.marshalSendAndReceive("http://localhost:8080/ws", request);
+		RealTimeWSProviderResponse rtwspResponse = (RealTimeWSProviderResponse) template.marshalSendAndReceive("http://localhost:8080/actimize-web-service/ws", request);
 		return rtwspResponse;
 	}
 	
